@@ -23,3 +23,6 @@ logs/
 .env
 venv/
 env/
+
+# Extra
+*.tex
