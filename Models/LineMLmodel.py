@@ -1,7 +1,7 @@
 """
 LineML GNN Model Definition.
 
-This module defines the SophisticatedLinkPredictor model and its components.
+This module defines the LineMLlinkPredictor model and its components.
 It implements a Residual GraphSAGE encoder with Jumping Knowledge and optional 
 Metric Learning for robust link prediction.
 """
@@ -120,7 +120,7 @@ class ResidualSAGEEncoder(nn.Module):
         return torch.cat(layer_outputs, dim=-1)
 
 
-class SophisticatedLinkPredictor(nn.Module):
+class LineMLlinkPredictor(nn.Module):
     """
     Main Link Prediction Model.
     

@@ -32,7 +32,7 @@ LineMLcode/
 │   ├── dataloader.py       # PyG DataLoaders for mini-batch training
 │   └── Graphpruner.py      # Pruning techniques (Spectral, KNN, etc.)
 ├── Models/                 # Model definitions
-│   └── MLGNNmodel.py       # SophisticatedLinkPredictor architecture
+│   └── LineMLmodel.py      # LineMLlinkPredictor architecture
 ├── utils/                  # Utility scripts
 │   └── training.py         # UnifiedTrainer class for training loops
 ├── run_unified_training.py # Main entry point for training
