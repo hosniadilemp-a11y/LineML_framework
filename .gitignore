@@ -26,3 +26,5 @@ env/
 
 # Extra
 *.tex
+*.pdf
+extra/

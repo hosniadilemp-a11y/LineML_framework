@@ -1,16 +1,27 @@
-# LineML: Scalable Link Prediction via Line Graphs
+# A Line Graph-Based Metric Learning Framework for Robust Link Prediction in Complex Networks
 
-LineML is a novel framework for scalable and accurate link prediction in large-scale networks. It transforms the link prediction task on a primal graph into a node classification task on its corresponding **Line Graph**. By leveraging graph neural networks (GNNs) on the dual graph representation, LineML effectively captures complex edge-to-edge interactions and higher-order structural patterns.
+**LineML** is a scalable framework that transforms the link prediction challenge into a node classification task on line graphs. It treats edges as first-class entities, enabling direct relationship modeling.
 
-![LineML Architecture](extra/fig_archi_1.pdf)
-*(Note: To view the architecture diagram directly on GitHub, please convert the PDF in `extra/` to a PNG or SVG format.)*
+![LineML Architecture](fig_archi_1.png)
+
+## Overview
+
+Existing link prediction methods often suffer from two key limitations: they model edge relationships only indirectly through node-level comparisons, and they struggle with the severe class imbalance typical of real-world networks.
+
+LineML addresses these challenges by reformulating link prediction as node classification on line graphs. This allows for direct modeling of edge-to-edge interactions. The framework integrates three complementary innovations:
+
+1.  **GraphSAGE-Based Encoder**: Captures node attributes and topological context through multi-hop neighborhood aggregation.
+2.  **Adaptive Metric Learning**: Uses degree-biased negative sampling and an adaptive triplet loss to refine embeddings based on example difficulty.
+3.  **Scalable Pruning and Parallelization**: Mitigates the quadratic growth of line graphs (`O(m^2)`) using spectral pruning and supports distributed data-parallel (DDP) training for high-performance computing.
+
+The framework has been evaluated on 18 benchmark datasets, achieving state-of-the-art performance, particularly on social and biological networks.
 
 ## Key Features
 
-- **Line Graph Transformation**: Converts edge prediction to node classification, enabling more expressive feature learning for links.
-- **Scalable Training**: Supports Distributed Data Parallel (DDP) training for large datasets.
-- **Advanced Graph Pruning**: helper module (`DataPropocessing/Graphpruner.py`) implements spectral, community-based, and degree-based pruning to manage line graph size.
-- **Robust Model**: Uses a Residual GraphSAGE encoder with Jumping Knowledge and optional Metric Learning (`Models/MLGNNmodel.py`).
+- **Direct Edge Modeling**: Transforms edges into nodes in a line graph to explicitly model relationships.
+- **Robust to Imbalance**: Employes degree-biased usage of negative sampling to handle class imbalance effectively.
+- **Scalable Architecture**: Includes spectral pruning to reduce graph size and supports multi-GPU training.
+- **Metric Learning**: Refines embeddings to ensure better separation between positive and negative links.
 
 ## Project Structure
 
@@ -24,7 +35,6 @@ LineMLcode/
 │   └── MLGNNmodel.py       # SophisticatedLinkPredictor architecture
 ├── utils/                  # Utility scripts
 │   └── training.py         # UnifiedTrainer class for training loops
-├── extra/                  # Supplementary materials (figures, etc.)
 ├── run_unified_training.py # Main entry point for training
 └── requirements.txt        # Python dependencies
 ```
@@ -33,8 +43,8 @@ LineMLcode/
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/LineML.git
-    cd LineML/LineMLcode
+    git clone https://github.com/hosniadilemp-a11y/LineML_framework.git
+    cd LineML_framework
     ```
 
 2.  Install dependencies:
