@@ -87,7 +87,7 @@ You can customize the training configuration in `run_unified_training.py` by mod
 
 ```python
 config = {
-    'features': 'random',         # Feature initialization ('random', 'original', 'node2vec')
+    'features': 'random',         
     'pruning': {'method': 'knn', 'k': 5}, # Pruning strategy
     'pos_neg_ratio': 2.0,         # Ratio of negative samples
     'sampling_strategy': 'degree' # Negative sampling strategy
