@@ -1,0 +1,25 @@
+# Bytes
+__pycache__/
+*.pyc
+
+# Data
+data/
+*.pkl
+*.npy
+*.pt
+*.pth
+
+# Logs
+wandb/
+logs/
+*.log
+
+# System
+.DS_Store
+.idea/
+.vscode/
+
+# Environment
+.env
+venv/
+env/
